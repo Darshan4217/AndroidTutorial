@@ -6,5 +6,5 @@ import io.reactivex.Single
 
 interface NewsListRepository : Repository {
 
-   // fun getNewsList(): Single<NewsListData>
+    fun getNewsList(): Single<NewsListData>
 }

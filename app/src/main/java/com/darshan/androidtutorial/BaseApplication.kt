@@ -34,12 +34,14 @@ open class BaseApplication : Application(), HasActivityInjector, HasSupportFragm
     override fun onCreate() {
         super.onCreate()
 
-       applicationComponent = DaggerApplicationComponent.builder()
+        applicationComponent = DaggerApplicationComponent.builder()
             .applicationModule(ApplicationModule(this))
-             .networkModule(NetworkModule())
+            .networkModule(NetworkModule())
             .build()
 
         applicationComponent.inject(this)
+
+        // ProcessLifecycleOwner.get().lifecycle.addObserver(ProcessL)
         applyAutoInjector()
     }
 

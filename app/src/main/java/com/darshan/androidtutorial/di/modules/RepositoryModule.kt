@@ -8,7 +8,7 @@ import dagger.Module
 @Module
 abstract class RepositoryModule {
 
-   @Binds
-   abstract fun bindNewsListRepository(repository: DefaultNewsListRepository): NewsListRepository
+    @Binds
+    abstract fun bindNewsListRepository(repository: DefaultNewsListRepository): NewsListRepository
 
 }

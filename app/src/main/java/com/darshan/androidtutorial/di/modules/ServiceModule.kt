@@ -8,7 +8,7 @@ import dagger.Module
 @Module
 abstract class ServiceModule {
 
-   @Binds
-   abstract fun bindNewsListService(service: DefaultNewsListService): NewsListService
+    @Binds
+    abstract fun bindNewsListService(service: DefaultNewsListService): NewsListService
 
 }

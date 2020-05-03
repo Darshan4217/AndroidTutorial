@@ -1,7 +1,70 @@
 package com.darshan.androidtutorial
 
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.NetworkRequest
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.darshan.androidtutorial.di.Injectable
+import com.darshan.androidtutorial.utils.isNetworkConnected
+import timber.log.Timber
+import javax.inject.Inject
 
-abstract class BaseActivity: AppCompatActivity(), Injectable {
+abstract class BaseActivity : AppCompatActivity(), Injectable {
+
+    @Inject
+    lateinit var connectivityManager: ConnectivityManager
+
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onStart() {
+        super.onStart()
+        onNetworkConnectivityChange(connected = isNetworkConnected())
+        registerNetworkConnectivityListener()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onStop() {
+        super.onStop()
+        if (connectivityManager != null) {
+            unregisterNetworkConnectivityListener()
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun unregisterNetworkConnectivityListener() {
+        connectivityManager.unregisterNetworkCallback(networkAvailabilityListener)
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun registerNetworkConnectivityListener() {
+        connectivityManager.registerNetworkCallback(NetworkRequest.Builder().build(), networkAvailabilityListener)
+    }
+    private val networkAvailabilityListener: ConnectivityManager.NetworkCallback = @RequiresApi(
+        Build.VERSION_CODES.LOLLIPOP
+    )
+    object : ConnectivityManager.NetworkCallback(){
+        override fun onAvailable(network: Network?) {
+            super.onAvailable(network)
+            runOnUiThread{
+                onNetworkConnectivityChange(connected = true)
+            }
+        }
+
+        override fun onLost(network: Network?) {
+            super.onLost(network)
+            runOnUiThread {
+                onNetworkConnectivityChange(connected = false)
+            }
+        }
+    }
+
+    protected open fun onNetworkConnectivityChange(connected : Boolean){
+        Timber.d("[onnteworkConnectivityChanged] connected=  $connected")
+    }
+
+
+
 }

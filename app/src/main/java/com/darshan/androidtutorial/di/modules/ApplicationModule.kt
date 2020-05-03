@@ -8,24 +8,24 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class ApplicationModule(private  val application: Application){
+class ApplicationModule(private val application: Application) {
 
     @Provides
     @ApplicationScope
     fun provideApplicationContext(): Context {
-        return  application.applicationContext
+        return application.applicationContext
     }
 
     @Provides
     @ApplicationScope
     fun provideApplication(): Application {
-        return  application
+        return application
     }
 
     @Provides
     @ApplicationScope
     fun provideApplicationResource(application: Application): Resources {
-        return  application.resources
+        return application.resources
     }
 
 }

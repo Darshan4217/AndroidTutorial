@@ -22,17 +22,18 @@ class TransientAwareConsumerLiveData<T : TransientAwareUiModel> : ConsumerLiveDa
 
     override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
         super.observe(owner, Observer { value: T? ->
-            value?.isRedelivered = false
+          //  value?.isRedelivered = false
             val inProperState =
                 owner.lifecycle.currentState == Lifecycle.State.CREATED || owner.lifecycle.currentState == Lifecycle.State.STARTED
-            if (VERBOSE_LOGGING)
-                if (previousValue == value && inProperState) {
-                    if (VERBOSE_LOGGING) {
+          //  if (VERBOSE_LOGGING)
+              //  if (previousValue == value && inProperState) {
+                  /*  if (VERBOSE_LOGGING) {
                         value?.isRedelivered = true
                     }
-                    observer.onChanged(value)
+                  */
+            observer.onChanged(value)
                     previousValue = value
-                }
+               // }
 
 
         })
