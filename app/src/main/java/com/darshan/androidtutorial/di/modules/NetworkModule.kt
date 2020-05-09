@@ -89,6 +89,6 @@ class NetworkModule {
 
     companion object {
         private const val OKHTTP_TIMEOUT_SECONDS = 60L
-        private const val BASE_URL = "http://newsapi.org/v2/"
+        private const val BASE_URL = "https://newsapi.org/v2/"
     }
 }
