@@ -12,12 +12,12 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class NewsListAdapter(private var articles: List<Articles>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
+    RecyclerView.Adapter<NewsListAdapter.NewsListViewHolder>(), Filterable {
 
     var articleList: ArrayList<Articles> = articles as ArrayList<Articles>
-   // var newArticleList = articles as ArrayList<Articles>
+    // var newArticleList = articles as ArrayList<Articles>
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder {
         val rootView: View =
             LayoutInflater.from(parent.context).inflate(R.layout.news_list_data, parent, false)
         return NewsListViewHolder(rootView)
@@ -27,8 +27,8 @@ class NewsListAdapter(private var articles: List<Articles>) :
         return articleList.size
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as NewsListViewHolder).bind(articleList[position], position)
+    override fun onBindViewHolder(holder: NewsListViewHolder, position: Int) {
+        holder.bind(articleList[position], position)
         // holder.setListeners()
 
         holder.itemView.image_delete.setOnClickListener {
@@ -51,7 +51,6 @@ class NewsListAdapter(private var articles: List<Articles>) :
         fun bind(articles: Articles, position: Int) {
             itemView.txtAuthor.text = articles.author
             itemView.txtTitle.text = articles.title
-
         }
 
         /*   fun setListeners() {
@@ -85,7 +84,7 @@ class NewsListAdapter(private var articles: List<Articles>) :
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-             //   articleList.clear()
+                //   articleList.clear()
                 articleList = results?.values as ArrayList<Articles>
                 notifyDataSetChanged()
             }
