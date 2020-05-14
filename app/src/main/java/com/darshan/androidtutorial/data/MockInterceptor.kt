@@ -19,10 +19,14 @@ class MockInterceptor : Interceptor {
             MockDataProvider(fileName = "newslist.json").getDataResponse(
                 request
             )
-        })
+        }/*, WORLD_STAT_URL to { request ->
+                MockDataProvider(fileName = "newslist.json").getDataResponse(
+                    request
+                )
+            }*/)
     }
 
     companion object {
-        const val WORLD_STAT_URL = "/v2/everything"
+        const val WORLD_STAT_URL = "/everything"
     }
 }
