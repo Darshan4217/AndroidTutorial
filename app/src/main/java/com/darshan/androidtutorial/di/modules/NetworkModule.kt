@@ -4,12 +4,12 @@ import android.content.Context
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
-import com.darshan.androidtutorial.BaseApplication
 import com.darshan.androidtutorial.BuildConfig
+import com.darshan.androidtutorial.base.BaseApplication
 import com.darshan.androidtutorial.data.Environment
 import com.darshan.androidtutorial.data.MockInterceptor
 import com.darshan.androidtutorial.di.scopes.ApplicationScope
-import com.darshan.androidtutorial.news.api.NewsListServiceBase
+import com.darshan.androidtutorial.ui.news.api.NewsListServiceBase
 import com.darshan.androidtutorial.utils.NetworkConnectionInterceptor
 import dagger.Module
 import dagger.Provides
@@ -22,7 +22,6 @@ import java.util.concurrent.TimeUnit
 
 @Module
 class NetworkModule {
-
 
     @Provides
     fun provideNetworkConnectionInterceptor(context: Context) =
@@ -89,6 +88,6 @@ class NetworkModule {
 
     companion object {
         private const val OKHTTP_TIMEOUT_SECONDS = 60L
-        private const val BASE_URL = "https://newsapi.org/v2/"
+        private const val BASE_URL = "http://newsapi.org/"
     }
 }

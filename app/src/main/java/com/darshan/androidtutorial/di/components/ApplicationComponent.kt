@@ -1,6 +1,6 @@
 package com.darshan.androidtutorial.di.components
 
-import com.darshan.androidtutorial.BaseApplication
+import com.darshan.androidtutorial.base.BaseApplication
 import com.darshan.androidtutorial.di.modules.*
 import com.darshan.androidtutorial.di.scopes.ApplicationScope
 import dagger.Component

@@ -1,6 +1,6 @@
-package com.darshan.androidtutorial.news.repository
+package com.darshan.androidtutorial.ui.news.repository
 
-import com.darshan.androidtutorial.news.model.NewsListData
+import com.darshan.androidtutorial.ui.news.model.NewsListData
 import com.darshan.androidtutorial.repository.Repository
 import io.reactivex.Single
 

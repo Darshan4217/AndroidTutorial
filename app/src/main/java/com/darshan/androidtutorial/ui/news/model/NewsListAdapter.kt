@@ -1,4 +1,4 @@
-package com.darshan.androidtutorial.news.model
+package com.darshan.androidtutorial.ui.news.model
 
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +20,9 @@ class NewsListAdapter(private var articles: List<Articles>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder {
         val rootView: View =
             LayoutInflater.from(parent.context).inflate(R.layout.news_list_data, parent, false)
-        return NewsListViewHolder(rootView)
+        return NewsListViewHolder(
+            rootView
+        )
     }
 
     override fun getItemCount(): Int {

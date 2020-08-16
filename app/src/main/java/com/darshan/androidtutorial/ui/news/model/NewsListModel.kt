@@ -1,4 +1,4 @@
-package com.darshan.androidtutorial.news.model
+package com.darshan.androidtutorial.ui.news.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

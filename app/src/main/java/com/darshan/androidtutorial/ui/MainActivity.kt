@@ -1,7 +1,8 @@
-package com.darshan.androidtutorial
+package com.darshan.androidtutorial.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.darshan.androidtutorial.R
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,7 +1,7 @@
-package com.darshan.androidtutorial.news.api
+package com.darshan.androidtutorial.ui.news.api
 
 import com.darshan.androidtutorial.di.scopes.ApplicationScope
-import com.darshan.androidtutorial.news.model.NewsListData
+import com.darshan.androidtutorial.ui.news.model.NewsListData
 import io.reactivex.Single
 import javax.inject.Inject
 

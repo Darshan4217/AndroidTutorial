@@ -1,4 +1,4 @@
-package com.darshan.androidtutorial.di
+package com.darshan.androidtutorial.di.utils
 
 import android.app.Activity
 import android.app.Application
@@ -42,12 +42,10 @@ fun Application.applyAutoInjector() = registerActivityLifecycleCallbacks(
 private fun handleActivity(activity: Activity) {
 
     if (activity is Injectable || activity is HasSupportFragmentInjector) {
-
         AndroidInjection.inject(activity)
     } else {
         ///
     }
-
 
     (activity as? FragmentActivity)?.supportFragmentManager?.registerFragmentLifecycleCallbacks(
         object : FragmentManager.FragmentLifecycleCallbacks() {

@@ -7,10 +7,7 @@ import okhttp3.Response
 
 class NetworkConnectionInterceptor(private val context: Context) : Interceptor {
 
-    // @Inject lateinit var context1: Context
-
     override fun intercept(chain: Interceptor.Chain): Response {
-
         if (!isNetworkConnected(context.applicationContext)) {
             throw NoInternetException("No internet available")
         }
@@ -18,12 +15,10 @@ class NetworkConnectionInterceptor(private val context: Context) : Interceptor {
     }
 }
 
-
 fun isNetworkConnected(applicationContext: Context): Boolean {
     val connectivityManager =
         applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
     connectivityManager?.activeNetworkInfo.also {
         return it != null && it.isConnected
     }
-    //  return connectivityManager?.activeNetworkInfo?.state == NetworkInfo.State.CONNECTED
 }

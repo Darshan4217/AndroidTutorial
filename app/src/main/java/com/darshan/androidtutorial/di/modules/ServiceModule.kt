@@ -1,7 +1,7 @@
 package com.darshan.androidtutorial.di.modules
 
-import com.darshan.androidtutorial.news.api.DefaultNewsListService
-import com.darshan.androidtutorial.news.api.NewsListService
+import com.darshan.androidtutorial.ui.news.api.DefaultNewsListService
+import com.darshan.androidtutorial.ui.news.api.NewsListService
 import dagger.Binds
 import dagger.Module
 

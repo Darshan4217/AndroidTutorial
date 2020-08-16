@@ -1,4 +1,4 @@
-package com.darshan.androidtutorial
+package com.darshan.androidtutorial.base
 
 import android.net.ConnectivityManager
 import android.net.Network
@@ -6,12 +6,13 @@ import android.net.NetworkRequest
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.darshan.androidtutorial.di.Injectable
+import com.darshan.androidtutorial.di.utils.Injectable
 import com.darshan.androidtutorial.utils.isNetworkConnected
 import timber.log.Timber
 import javax.inject.Inject
 
-abstract class BaseActivity : AppCompatActivity(), Injectable {
+abstract class BaseActivity : AppCompatActivity(),
+    Injectable {
 
     @Inject
     lateinit var connectivityManager: ConnectivityManager

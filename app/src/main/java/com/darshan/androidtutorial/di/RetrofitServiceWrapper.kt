@@ -1,3 +1,0 @@
-package com.darshan.androidtutorial.di
-
-interface RetrofitServiceWrapper

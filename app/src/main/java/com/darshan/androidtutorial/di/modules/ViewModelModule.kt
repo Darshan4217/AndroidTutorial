@@ -2,9 +2,9 @@ package com.darshan.androidtutorial.di.modules
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.darshan.androidtutorial.di.ViewModelKey
-import com.darshan.androidtutorial.di.ViewModelProviderFactory
-import com.darshan.androidtutorial.news.ui.NewListViewModel
+import com.darshan.androidtutorial.di.utils.ViewModelKey
+import com.darshan.androidtutorial.di.utils.ViewModelProviderFactory
+import com.darshan.androidtutorial.ui.news.ui.NewListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

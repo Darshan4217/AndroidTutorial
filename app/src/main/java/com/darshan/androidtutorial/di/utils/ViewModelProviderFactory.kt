@@ -1,4 +1,4 @@
-package com.darshan.androidtutorial.di
+package com.darshan.androidtutorial.di.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

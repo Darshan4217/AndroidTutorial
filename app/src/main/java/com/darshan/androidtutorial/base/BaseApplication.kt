@@ -1,9 +1,9 @@
-package com.darshan.androidtutorial
+package com.darshan.androidtutorial.base
 
 import android.app.Activity
 import android.app.Application
 import androidx.fragment.app.Fragment
-import com.darshan.androidtutorial.di.applyAutoInjector
+import com.darshan.androidtutorial.di.utils.applyAutoInjector
 import com.darshan.androidtutorial.di.components.ApplicationComponent
 import com.darshan.androidtutorial.di.components.DaggerApplicationComponent
 import com.darshan.androidtutorial.di.modules.ApplicationModule
@@ -34,14 +34,12 @@ open class BaseApplication : Application(), HasActivityInjector, HasSupportFragm
     override fun onCreate() {
         super.onCreate()
 
-        applicationComponent = DaggerApplicationComponent.builder()
+        DaggerApplicationComponent.builder()
             .applicationModule(ApplicationModule(this))
             .networkModule(NetworkModule())
             .build()
+            .inject(this)
 
-        applicationComponent.inject(this)
-
-        // ProcessLifecycleOwner.get().lifecycle.addObserver(ProcessL)
         applyAutoInjector()
     }
 
